@@ -11,7 +11,7 @@ function NavBar(props) {
         <List component="nav">
             <ListItem component="div">
                 <ListItemText inset>
-                    <TypoGraphy className="MuiTypography-colorError" color="inherit" variant="title" >
+                    <TypoGraphy color="inherit" variant="title" >
                         <Link href="https://www.google.com.ar" color="inherit">Home</Link>
                     </TypoGraphy>
                 </ListItemText>
