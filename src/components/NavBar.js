@@ -5,7 +5,6 @@ import ListItemText from '@material-ui/core/ListItemText';
 import TypoGraphy from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 
-
 function NavBar(props) {
 
     return (
