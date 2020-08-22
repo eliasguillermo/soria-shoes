@@ -32,7 +32,7 @@ function NavBar(props) {
 
                 <ListItemText inset>
                     <TypoGraphy color="inherit" variant="title">
-                        <Link href="https://www.google.com.ar" color="inherit">Find us</Link>
+                        <Link href="https://www.twitter.com.ar" color="inherit">Find us</Link>
                     </TypoGraphy>
                 </ListItemText>
             </ListItem >
