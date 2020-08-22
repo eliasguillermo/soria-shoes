@@ -12,7 +12,7 @@ function NavBar(props) {
             <ListItem component="div">
                 <ListItemText inset>
                     <TypoGraphy color="inherit" variant="title" >
-                        <Link href="https://www.google.com.ar" color="inherit">Home</Link>
+                        <Link href="https://www.facebook.com.ar" color="inherit">Home</Link>
                     </TypoGraphy>
                 </ListItemText>
 
