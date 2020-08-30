@@ -1,6 +1,10 @@
 .Header-branding-logo {
     margin-top: 20px;
-    max-width: 120px;
-    width:100%;
+    max-width: 60px;
+    width:50%;
 }
 
+.Nav-link {
+    color: white;
+    text-decoration: none;
+}

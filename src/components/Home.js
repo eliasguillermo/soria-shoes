@@ -3,9 +3,7 @@ import './Home.css';
 
 function Home(props) {
     return (
-        <div>
-            <label className="Home-text">{props.greetings}</label>
-        </div>
+        <label className="Home-text">{props.greetings}</label>
     )
 
 }

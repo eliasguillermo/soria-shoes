@@ -1,0 +1,6 @@
+.Product-Body {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
