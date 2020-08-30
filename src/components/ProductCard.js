@@ -7,7 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import ProductGroup1 from '../images/ProductGroup1.jpg';
-import Counter from './Counter.js'
+import ItemCount from './ItemCount.js'
 
 const useStyles = makeStyles({
   root: {
@@ -39,7 +39,7 @@ function ProductCard() {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Counter/>
+        <ItemCount min="0" max="10" />
       </CardActions>
     </Card>
   );

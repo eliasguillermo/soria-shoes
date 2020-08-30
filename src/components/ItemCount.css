@@ -1,0 +1,20 @@
+.Counter-Container
+{
+    box-sizing: border-box;
+}
+
+.Counter-Div
+{
+    margin-top:15px;
+}
+
+.Counter-Button
+{
+    display: block;
+    width: 100%;
+}
+
+.Counter-Input
+{
+    text-align: center;
+}
