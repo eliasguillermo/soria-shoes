@@ -14,7 +14,7 @@ const useStyles = makeStyles({
     maxWidth: 345,
   },
   media: {
-    height: 140,
+    height: 200,
   },
 });
 
@@ -34,7 +34,7 @@ function ProductCard() {
             Pink and golden sneakers
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            How many do you want?
+            How many do you want? (Max: 10 units)
           </Typography>
         </CardContent>
       </CardActionArea>
