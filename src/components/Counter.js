@@ -1,7 +1,8 @@
 import React from 'react';
-import CounterButton from './CounterButton'
+import CounterButton from './CounterButton';
+import Input from '@material-ui/core/Input';
 
-class Counter extends Component {
+class Counter extends React.Component {
 
     constructor(){
         super();
@@ -11,9 +12,9 @@ class Counter extends Component {
     render () {
         return (
             <div>
-                <CounterButton onClick={handleClick} sign={"+"} />
-                <input />
                 <CounterButton sign={"-"} />
+                <Input/>
+                <CounterButton sign={"+"} />
             </div>
 
         );

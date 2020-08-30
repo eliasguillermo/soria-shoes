@@ -1,25 +1,30 @@
 import React from 'react';
- 
-function Button(){
-    return <button onClick={props.onClick}>{props.sign}</button>
-}
+import Button from '@material-ui/core/Button';
 
-export default Button;
 
-let contador = 0;
+function CounterButton(props) {
+    //return <button onClick={props.onClick}>{props.sign}</button>
+    return (
+    <Button size="small" variant="contained" color="secondary">{props.sign}</Button>
+    );
+  }
 
-function Sumar(event){
-  event.preventDefault()
-  contador++
-  console.log(contador);
-  document.getElementById('contador').value = contador;
-  return false;
-}
+  export default CounterButton;
 
-function Restar(event){
-  event.preventDefault()
-  contador--
-  console.log(contador);
-  document.getElementById('contador').value = contador;
-  return false;
-}
+  let contador = 0;
+
+  function Sumar(event) {
+    event.preventDefault()
+    contador++
+    console.log(contador);
+    document.getElementById('contador').value = contador;
+    return false;
+  }
+
+  function Restar(event) {
+    event.preventDefault()
+    contador--
+    console.log(contador);
+    document.getElementById('contador').value = contador;
+    return false;
+  }

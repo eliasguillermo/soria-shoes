@@ -3,7 +3,6 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import TypoGraphy from '@material-ui/core/Typography';
-//import Link from '@material-ui/core/Link';
 import logo from '../images/Logo.png';
 import './NavBar.css';
 import CartIcon from './CartIcon.js'
@@ -51,7 +50,6 @@ function NavBar(props) {
                                     <CartIcon />
                                 </TypoGraphy>
                             </ListItemText>
-
                         </ListItem >
                     </List>
             </div>
