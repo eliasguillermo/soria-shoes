@@ -6,19 +6,19 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import ProductGroup1 from '../images/ProductGroup1.jpg';
 import ItemCount from './ItemCount.js'
 
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
+    margin: 10
   },
   media: {
     height: 200,
   },
 });
 
-function ProductCard() {
+function ProductCard(props) {
   const classes = useStyles();
 
   return (
@@ -26,12 +26,12 @@ function ProductCard() {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image={ProductGroup1}
+          image={props.image}
           title="Pink Shoes"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Pink and golden sneakers
+            {props.title}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
             How many do you want? (Max: 10 units)
