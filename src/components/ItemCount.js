@@ -1,48 +1,48 @@
-import React from 'react';
+import React, {useState, useContext} from 'react';
 import CounterButton from './CounterButton';
 import Input from '@material-ui/core/Input';
 import './ItemCount.css';
 import Button from '@material-ui/core/Button';
+import {CartContext} from './CartContext.js'
 
-class ItemCount extends React.Component {
 
-    constructor() {
-        super();
-        this.state = {
-            counter: 0,
-        };
-    }
+function ItemCount(props) {
 
-    increase = () => {
-        if (this.state.counter < this.props.max) {
-            this.setState((prevState) => ({ counter: prevState.counter++ }));
+    const [counter, setCounter] = useContext(CartContext);
+    const [state, setState] = useState(0);
+
+
+    function increase()  {
+        if (state < props.max) {
+            setState(state + 1);
         }
     }
 
-    decrease = () => {
-        if (this.state.counter > this.props.min) {
-            this.setState((prevState) => ({ counter: prevState.counter-- }));
+    function decrease ()  {
+        if (state > props.min) {
+            setState(state - 1);
         }
     }
 
-    onAdd = () => {
-        alert(this.state.counter + ' products added.' );
+    function onAdd () {
+        alert(state + ' products added.' );
+        setCounter(counter => counter + state);
     }
 
-    render() {
+
         return (
             <div className="Counter-Container">
                 <div>
-                    <CounterButton onClick={this.decrease} sign={"-"} />
-                    <Input classes={{ input: 'Counter-Input' }} value={this.state.counter}></Input>
-                    <CounterButton onClick={this.increase} sign={"+"} />
+                    <CounterButton onClick={decrease} sign={"-"} />
+                    <Input classes={{ input: 'Counter-Input' }} value={state}></Input>
+                    <CounterButton onClick={increase} sign={"+"} />
                 </div>
                 <div className="Counter-Div">
-                    <Button onClick={this.onAdd} classes={{ root: 'Counter-Button' }} variant="outlined" color="primary">Add to cart</Button>
+                    <Button onClick={onAdd} classes={{ root: 'Counter-Button' }} variant="outlined" color="primary">Add to cart</Button>
                 </div>
             </div>
         );
-    }
+    
 }
 
 export default ItemCount;
