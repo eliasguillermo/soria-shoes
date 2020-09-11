@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -10,7 +10,6 @@ import Contact from './components/Contact.js'
 import {CartContextProvider} from './components/CartContext.js'
 
 function App() {
-  const [counter, setCounter] = useState(0);
   return (
     <CartContextProvider>
       <div className="App">

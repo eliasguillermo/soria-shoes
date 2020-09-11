@@ -8,7 +8,7 @@ import {CartContext} from './CartContext.js'
 
 function ItemCount(props) {
 
-    const [counter, setCounter] = useContext(CartContext);
+    const [ , setCounter] = useContext(CartContext);
     const [state, setState] = useState(0);
 
 

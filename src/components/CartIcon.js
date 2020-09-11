@@ -15,7 +15,7 @@ const StyledBadge = withStyles((theme) => ({
 }))(Badge);
 
 function CartIcon() {
-    const [counter, setCounter] = useContext(CartContext);
+    const [counter, ] = useContext(CartContext);
 
     return (
         <IconButton aria-label="cart">
