@@ -7,6 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import ItemCount from './ItemCount.js'
+import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
@@ -23,14 +24,16 @@ function ProductCard(props) {
 
   return (
     <Card className={classes.root}>
-      <CardActionArea>
+       <NavLink  className="Nav-link" to={'/item/' + props.productId} color="inherit">
+      <CardActionArea >
+       
         <CardMedia
           className={classes.media}
           image={props.image}
           title="Pink Shoes"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography gutterBottom variant="h5" color="textPrimary" component="h2">
             {props.title}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
@@ -38,6 +41,7 @@ function ProductCard(props) {
           </Typography>
         </CardContent>
       </CardActionArea>
+      </NavLink>
       <CardActions>
         <ItemCount min="0" max="10" />
       </CardActions>

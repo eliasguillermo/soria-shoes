@@ -1,0 +1,15 @@
+.container
+{
+background-color: white;
+}
+
+.preview-pic
+{
+    margin-top: 15px;
+    height: 400px;
+}
+
+.details
+{
+    color: black;
+}

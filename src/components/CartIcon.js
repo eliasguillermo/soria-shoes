@@ -18,7 +18,8 @@ function CartIcon() {
     const [counter, ] = useContext(CartContext);
 
     return (
-        <IconButton aria-label="cart">
+        
+        <IconButton aria-label="cart" >
             <StyledBadge badgeContent={counter} color="secondary">
                     <ShoppingCartIcon style={{ color: "white", fontSize: "30" }} />
             </StyledBadge>

@@ -17,41 +17,35 @@ function NavBar(props) {
                 <img src={logo} alt="logo" className="Header-branding-logo" />
             </div>
             <div>
-                    <List component="nav">
-                        <ListItem component="div">
-                            <ListItemText inset>
-                                <TypoGraphy color="inherit" variant="title" >
-                                    <NavLink className="Nav-link" to="/">Home</NavLink>
-                                </TypoGraphy>
-                            </ListItemText>
+                <List component="nav">
+                    <ListItem component="div">
+                        <ListItemText inset>
+                            <TypoGraphy color="inherit" variant="title" >
+                                <NavLink className="Nav-link" to="/">Our Work</NavLink>
+                            </TypoGraphy>
+                        </ListItemText>
 
-                            <ListItemText inset>
-                                <TypoGraphy color="inherit" variant="title" >
-                                    <NavLink className="Nav-link" to="/about/">About</NavLink>
-                                </TypoGraphy>
-                            </ListItemText>
+                        <ListItemText inset>
+                            <TypoGraphy color="inherit" variant="title" >
+                                <NavLink className="Nav-link" to="/about/">About</NavLink>
+                            </TypoGraphy>
+                        </ListItemText>
 
+                        <ListItemText inset>
+                            <TypoGraphy color="inherit" variant="title">
+                                <NavLink className="Nav-link" to="/contact/" color="inherit">Find us</NavLink>
+                            </TypoGraphy>
+                        </ListItemText>
 
-                            <ListItemText inset>
-                                <TypoGraphy color="inherit" variant="title">
-                                    <NavLink className="Nav-link" to="/products/" href="./Products.js" color="inherit">Our work</NavLink>
-                                </TypoGraphy>
-                            </ListItemText>
-
-
-                            <ListItemText inset>
-                                <TypoGraphy color="inherit" variant="title">
-                                    <NavLink className="Nav-link" to="/contact/" color="inherit">Find us</NavLink>
-                                </TypoGraphy>
-                            </ListItemText>
-
-                            <ListItemText inset>
-                                <TypoGraphy color="inherit" variant="title">
+                        <ListItemText inset>
+                            <TypoGraphy color="inherit" variant="title">
+                                <NavLink className="Nav-link" to="/cart/" color="inherit">
                                     <CartIcon />
-                                </TypoGraphy>
-                            </ListItemText>
-                        </ListItem >
-                    </List>
+                                </NavLink>
+                            </TypoGraphy>
+                        </ListItemText>
+                    </ListItem >
+                </List>
             </div>
         </div>
     )

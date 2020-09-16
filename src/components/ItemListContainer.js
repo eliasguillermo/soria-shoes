@@ -3,8 +3,9 @@ import ProductGroup1 from '../images/ProductGroup1.jpg';
 import ProductGroup2 from '../images/ProductGroup2.jpg';
 import ProductGroup3 from '../images/ProductGroup3.jpg';
 import ItemList from './ItemList.js'
+import './ItemListContainer.css';
 
-export default function ItemData() {
+export default function ItemListContainer(props) {
 
     const [productData, setProductData] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -20,13 +21,12 @@ export default function ItemData() {
                     { id: '3', name: 'Fine black shoe', image: ProductGroup3 }
                 ];
                 resolve(productData);
-            }, 2000);
+            }, 1000);
             //reject('Error al obtener los productos');
         });
 
         promise.then((res) => {
             setProductData(res);
-            console.log(res);
             setLoading(false);
         }, (error) => {
             console.log(error);
@@ -41,6 +41,10 @@ export default function ItemData() {
         return <div>Loading...</div>
     }
 
-    return <ItemList data={productData} />
+    return (
+    <div>
+    <label className="Home-text">{props.greetings}</label>
+    <ItemList data={productData} /> 
+    </div>)
 
 }
