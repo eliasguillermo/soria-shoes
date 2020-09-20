@@ -3,20 +3,6 @@
     box-sizing: border-box;
 }
 
-.Counter-Div
-{
-    margin-top:15px;
-    max-width: 328px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 15px;
-}
-
-.Counter-Button
-{
-    display: block;
-    width: 100%;
-}
 
 .Counter-Input
 {

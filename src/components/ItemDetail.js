@@ -1,8 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './ItemDetail.css';
+import Button from '@material-ui/core/Button';
+import './ItemCount.css';
 import ItemCount from './ItemCount.js'
+import {CartContext} from './CartContext.js'
 
 export default function ItemDetail(props) {
+
+    let count = 0;
+    const [ , setCounter] = useContext(CartContext);
+
     return (
         <div className="container">
                 <div>
@@ -12,10 +19,23 @@ export default function ItemDetail(props) {
                 <h2>{props.data.name}</h2>
                 <p>{props.data.description}</p>
                 <h3>Price: <span>{props.data.price}</span></h3>
-                <ItemCount min="0" max="10" />
+                <ItemCount handleChange={handleChange} min="0" max="10" />
+            </div>
+            <div className="Add-Div">
+                <Button id='AddButton' onClick={onAdd} classes={{ root: 'Add-Button' }} variant="outlined" color="primary">Add to cart</Button>
             </div>
         </div>
 
     )
+
+     function onAdd () {
+        count > 0 ? alert(count + ' products added.') : alert('Select at least 1 unit.');
+         setCounter(counter => counter + count);
+     }
+
+    function handleChange(state) {
+        count = state 
+        state > 0 ? document.getElementById('AddButton').innerHTML = 'Add ' + count + ' to cart' :document.getElementById('AddButton').innerHTML = 'Add to cart';
+    }
 
 }
