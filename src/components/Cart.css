@@ -1,0 +1,11 @@
+.Cart-title{
+    color:black;
+    font-family: ltc-bodoni-175;
+    font-size: 40px;
+    text-transform: none;
+    background-color: white;
+    min-height: 12vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }

@@ -16,9 +16,9 @@ export default function ItemListContainer(props) {
             setLoading(true);
             setTimeout(() => {
                 const productData = [
-                    { id: '1', name: 'Pink and golden sneakers', image: ProductGroup1 },
-                    { id: '2', name: 'Blue Suede', image: ProductGroup2 },
-                    { id: '3', name: 'Fine black shoe', image: ProductGroup3 }
+                    { id: '1', name: 'Pink and golden sneakers', image: ProductGroup1, price:'500'},
+                    { id: '2', name: 'Blue Suede', image: ProductGroup2, price:'750'},
+                    { id: '3', name: 'Fine black shoe', image: ProductGroup3, price:'1000' }
                 ];
                 resolve(productData);
             }, 1000);

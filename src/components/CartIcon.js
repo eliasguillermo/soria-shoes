@@ -14,19 +14,23 @@ const StyledBadge = withStyles((theme) => ({
     },
 }))(Badge);
 
-function CartIcon() {
-    const [counter, ] = useContext(CartContext);
+export default function CartIcon() {
+    const [cart,] = useContext(CartContext);
+    
+    const productSum = cart.reduce((pSum, e) => {
+        pSum += e[1];
+        return pSum;
+    }, 0);
 
+    console.log(productSum);
+     
     return (
-        
         <IconButton aria-label="cart" >
-            <StyledBadge badgeContent={counter} color="secondary">
+            <StyledBadge badgeContent={productSum} color="secondary">
                     <ShoppingCartIcon style={{ color: "white", fontSize: "30" }} />
             </StyledBadge>
         </IconButton>
     );
 
 }
-
-export default CartIcon;
 

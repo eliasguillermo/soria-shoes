@@ -9,7 +9,7 @@ import CartIcon from './CartIcon.js'
 import { NavLink } from "react-router-dom";
 
 
-function NavBar(props) {
+function NavBar() {
 
     return (
         <div>
@@ -20,25 +20,25 @@ function NavBar(props) {
                 <List component="nav">
                     <ListItem component="div">
                         <ListItemText inset>
-                            <TypoGraphy color="inherit" variant="title" >
+                            <TypoGraphy color="inherit"  >
                                 <NavLink className="Nav-link" to="/">Our Work</NavLink>
                             </TypoGraphy>
                         </ListItemText>
 
                         <ListItemText inset>
-                            <TypoGraphy color="inherit" variant="title" >
+                            <TypoGraphy color="inherit" >
                                 <NavLink className="Nav-link" to="/about/">About</NavLink>
                             </TypoGraphy>
                         </ListItemText>
 
                         <ListItemText inset>
-                            <TypoGraphy color="inherit" variant="title">
+                            <TypoGraphy color="inherit">
                                 <NavLink className="Nav-link" to="/contact/" color="inherit">Find us</NavLink>
                             </TypoGraphy>
                         </ListItemText>
 
                         <ListItemText inset>
-                            <TypoGraphy color="inherit" variant="title">
+                            <TypoGraphy color="inherit" >
                                 <NavLink className="Nav-link" to="/cart/" color="inherit">
                                     <CartIcon />
                                 </NavLink>

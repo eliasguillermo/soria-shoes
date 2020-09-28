@@ -25,24 +25,24 @@ const useStyles = makeStyles({
 function ProductCard(props) {
   const classes = useStyles();
   let count = 0;
-  const [, setCounter] = useContext(CartContext);
+  const [,setCart] = useContext(CartContext);
 
   return (
     <Card className={classes.root}>
-      <NavLink className="Nav-link" to={'/item/' + props.productId} color="inherit">
+      <NavLink className="Nav-link" to={'/item/' + props.data.id} color="inherit">
         <CardActionArea >
 
           <CardMedia
             className={classes.media}
-            image={props.image}
-            title="Pink Shoes"
+            image={props.data.image}
+            title={props.data.name}
           />
           <CardContent>
             <Typography gutterBottom variant="h5" color="textPrimary" component="h2">
-              {props.title}
+              {props.data.name}
             </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-              How many do you want? (Max: 10 units)
+            <Typography variant="body1" color="textSecondary" component="p">
+              ${props.data.price}
           </Typography>
           </CardContent>
         </CardActionArea>
@@ -51,19 +51,35 @@ function ProductCard(props) {
         <ItemCount handleChange={handleChange} min="0" max="10" />
       </CardActions>
       <div className="Add-Div">
-        <Button id={'Button' + props.productId} onClick={onAdd} classes={{ root: 'Add-Button' }} variant="outlined" color="primary">Add to cart</Button>
+        <Button id={'Button' + props.data.id} onClick={onAdd} classes={{ root: 'Add-Button' }} variant="outlined" color="primary">Add to cart</Button>
       </div>
     </Card>
   );
 
   function onAdd() {
-    count > 0 ? alert(count + ' products added.') : alert('Select at least 1 unit.');
-    setCounter(counter => counter + count);
-  }
+    if (count > 0) {
+        alert(count + ' products added.')
+        setCart((currentCart) => {
+            const c = currentCart.find(p => p[0].id === props.data.id);
+            let newState;
+            if (c !== undefined) {
+                c[1] += count;
+                newState = [...currentCart];
+            }
+            else {
+                newState = [...currentCart, [props.data, count]]
+            }
+            return newState;
+        });
+    }
+    else {
+        alert('Select at least 1 unit.');
+    }
+}
   
   function handleChange(state) {
     count = state
-    state > 0 ? document.getElementById('Button' + props.productId).innerHTML = 'Add ' + count + ' to cart' : document.getElementById('Button' + props.productId).innerHTML = 'Add to cart';
+    state > 0 ? document.getElementById('Button' + props.data.id).innerHTML = 'Add ' + count + ' to cart' : document.getElementById('Button' + props.data.id).innerHTML = 'Add to cart';
   }
 
 }

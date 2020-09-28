@@ -7,7 +7,7 @@ function ItemList(props) {
     return (
         <div className="Product-Body">
             {props.data.map(u => 
-            <Item key={u.id} productId={u.id} title={u.name} image={u.image} />)
+            <Item data={u} key={u.id} />)
             }
         </div>
     )
