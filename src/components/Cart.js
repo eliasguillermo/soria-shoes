@@ -15,6 +15,10 @@ const useStyles = makeStyles((theme) => ({
             margin: theme.spacing(2),
         },
     },
+    link: {
+        textDecoration: 'none',
+        fontWeight: 'bold'
+    }
 }));
 
 export default function Cart() {
@@ -46,7 +50,7 @@ export default function Cart() {
                     :
                     <div className="Cart-empty">
                         <img src={EmptyCart} alt="empty-cart"></img>
-                        <label><NavLink to="/">Click here </NavLink>
+                        <label><NavLink className={classes.link} to="/">Click here </NavLink>
                             to start shopping</label>
                     </div>
                 }

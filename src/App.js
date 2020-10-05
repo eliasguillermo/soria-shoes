@@ -9,6 +9,7 @@ import Contact from './components/Contact.js'
 import Cart from './components/Cart.js'
 import ItemDetailContainer from './components/ItemDetailContainer.js'
 import {CartContextProvider} from './components/context/CartContext.js'
+import CategoryContainer from './components/CategoryContainer.js'
 
 
 function App() {
@@ -18,13 +19,12 @@ function App() {
         <Router>
           <NavBar color="primary" position="static" />
           <Switch>
-            <Route exact path="/" >
-            <ItemListContainer greetings="Welcome to Soria's shoes" />
-            </Route>
+            <Route exact path="/" component={ItemListContainer} />
             <Route path="/about/" component={About} />
             <Route path="/contact/" component={Contact} />
             <Route path="/cart/" component={Cart} />
             <Route path="/item/:id" component={ItemDetailContainer} />
+            <Route path="/categories/:id" component={CategoryContainer} />
             <Route component={Error} />
           </Switch>
           {/* <Footer/> */}

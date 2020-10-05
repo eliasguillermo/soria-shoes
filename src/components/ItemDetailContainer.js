@@ -31,7 +31,17 @@ export default function ItemDetailContainer() {
             setLoading(false);
         });
 
-        // const promise = new Promise((resolve, reject) => {
+    }, [itemId.id])
+
+
+    return (
+        <div>
+            { loading ? <Loading /> : <ItemDetail data={productItem} /> }
+        </div>)
+
+}
+
+   // const promise = new Promise((resolve, reject) => {
         //     setLoading(true);
         //     setTimeout(() => {
         //         const productId = param.id
@@ -54,13 +64,3 @@ export default function ItemDetailContainer() {
         // }).catch((err) => {
         //     console.log(err);
         // });;
-
-    }, [itemId.id])
-
-
-    return (
-        <div>
-            { loading ? <Loading /> : <ItemDetail data={productItem} /> }
-        </div>)
-
-}

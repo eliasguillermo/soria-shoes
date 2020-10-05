@@ -28,9 +28,7 @@ function NavBar() {
                         </ListItemText>
 
                         <ListItemText inset>
-                            <TypoGraphy color="inherit" >
                                 <CategoryList/>
-                            </TypoGraphy>
                         </ListItemText>
 
                         <ListItemText inset>

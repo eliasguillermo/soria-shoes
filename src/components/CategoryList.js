@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Button from '@material-ui/core/Button';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Grow from '@material-ui/core/Grow';
@@ -6,6 +6,8 @@ import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import { makeStyles } from '@material-ui/core/styles';
+import { getFirestore } from '../firebase';
+import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,8 +25,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CategoryList() {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const anchorRef = React.useRef(null);
+  const [categories, setCategories] = useState({});
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -45,9 +48,27 @@ export default function CategoryList() {
     }
   }
 
+  useEffect(() => {
+    const db = getFirestore();
+    const itemList = db.collection("categories");
+    itemList.get().then((querySnapshot) => {
+        if (querySnapshot.size === 0) {
+            console.log('No results');
+        }
+        setCategories(querySnapshot.docs.map(doc => {
+            return ({ id: doc.id, ...doc.data() })}));
+            
+    }).catch((error) => {
+        console.log("Error getting items", error);
+    }).finally(() => {
+    });
+
+}, []);
+  
+  
   // return focus to the button when we transitioned from !open -> open
   const prevOpen = React.useRef(open);
-  React.useEffect(() => {
+  useEffect(() => {
     if (prevOpen.current === true && open === false) {
       anchorRef.current.focus();
     }
@@ -55,9 +76,11 @@ export default function CategoryList() {
     prevOpen.current = open;
   }, [open]);
 
+
+
+
   return (
     <div className={classes.root}>
-      <div>
         <Button
           ref={anchorRef}
           aria-controls={open ? 'menu-list-grow' : undefined}
@@ -70,21 +93,22 @@ export default function CategoryList() {
           {({ TransitionProps, placement }) => (
             <Grow
               {...TransitionProps}
-              style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+              // style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
             >
               
                 <ClickAwayListener onClickAway={handleClose}>
                   <MenuList className={classes.background} autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown} >
-                    <MenuItem onClick={handleClose}>Sandals</MenuItem>
-                    <MenuItem onClick={handleClose}>Shoes</MenuItem>
-                    <MenuItem onClick={handleClose}>Sneakers</MenuItem>
+                  {categories.map((c) => (
+                        <MenuItem key={c.id} onClick={handleClose}>
+                         <NavLink className="Nav-link" to={'/categories/' + c.key} color="inherit">{c.name}</NavLink>
+                        </MenuItem>
+                    ))}
                   </MenuList>
                 </ClickAwayListener>
             
             </Grow>
           )}
         </Popper>
-      </div>
     </div>
   );
 }

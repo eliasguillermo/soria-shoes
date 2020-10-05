@@ -22,8 +22,6 @@ export default function CartIcon() {
         return pSum;
     }, 0);
 
-    console.log(productSum);
-     
     return (
         <IconButton aria-label="cart" >
             <StyledBadge badgeContent={productSum} color="secondary">

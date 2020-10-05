@@ -26,7 +26,22 @@ export default function ItemListContainer(props) {
             setLoading(false);
         });
 
-        // const promise = new Promise((resolve, reject) => {
+    }, []);
+
+
+    return (
+        <div>
+            { loading ? <Loading /> :
+                <div className="Background">
+                    <label className="Home-text">Welcome to Soria's shoes</label>
+                    <ItemList data={productData} />
+                </div>
+            }
+        </div>)
+
+}
+
+       // const promise = new Promise((resolve, reject) => {
         //     setLoading(true);
         //     setTimeout(() => {
         //         const productData = [
@@ -47,18 +62,3 @@ export default function ItemListContainer(props) {
         // }).catch((err) => {
         //     console.log(err);
         // });;
-
-    }, []);
-
-
-    return (
-        <div>
-            { loading ? <Loading /> :
-                <div>
-                    <label className="Home-text">{props.greetings}</label>
-                    <ItemList data={productData} />
-                </div>
-            }
-        </div>)
-
-}

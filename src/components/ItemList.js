@@ -23,17 +23,13 @@ export default function ItemList(props) {
     const classes = useStyles();
 
     return (
-        <div className={classes.background}>
-            <div className={classes.root}>
-                <Grid container spacing={3}>
+                <Grid className={classes.root} container spacing={3} justify="center" >
                     {props.data.map((u) => (
-                        <Grid item xs={4}>
+                        <Grid key={u.id + u.name} item xs={4} >
                             <Item data={u} key={u.id} />
                         </Grid>
                     ))}
                 </Grid>
-            </div>
-        </div>
     );
 }
 

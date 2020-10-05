@@ -14,3 +14,24 @@ flex-direction: column;
 align-items: center;
 justify-content: center;
 }
+
+.Category {
+text-transform: capitalize;
+color:black;
+white-space: pre-wrap;
+font-family: ltc-bodoni-175;
+font-size: 60px;
+letter-spacing: 0em;
+line-height: 1em;
+background-color: white;
+background-size: cover;
+min-height: 25vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+
+.Background {
+    background-color: white;
+}
