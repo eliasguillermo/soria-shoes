@@ -8,9 +8,10 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import ItemCount from './ItemCount.js'
 import { NavLink } from "react-router-dom";
-import { CartContext } from './CartContext.js'
+import { CartContext } from './context/CartContext.js'
 import './Item.css';
 import Button from '@material-ui/core/Button';
+
 
 const useStyles = makeStyles({
   root: {
@@ -18,11 +19,16 @@ const useStyles = makeStyles({
     margin: 10
   },
   media: {
-    height: 200,
+    height: 300,
   },
+  img: {
+    display: 'block',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+  }
 });
 
-function ProductCard(props) {
+function Item(props) {
   const classes = useStyles();
   let count = 0;
   const [,setCart] = useContext(CartContext);
@@ -84,4 +90,4 @@ function ProductCard(props) {
 
 }
 
-export default ProductCard;
+export default Item;

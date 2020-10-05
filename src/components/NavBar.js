@@ -7,6 +7,7 @@ import logo from '../images/Logo.png';
 import './NavBar.css';
 import CartIcon from './CartIcon.js'
 import { NavLink } from "react-router-dom";
+import CategoryList from './CategoryList.js'
 
 
 function NavBar() {
@@ -19,9 +20,16 @@ function NavBar() {
             <div>
                 <List component="nav">
                     <ListItem component="div">
+
                         <ListItemText inset>
                             <TypoGraphy color="inherit"  >
-                                <NavLink className="Nav-link" to="/">Our Work</NavLink>
+                                <NavLink className="Nav-link" to="/">Home</NavLink>
+                            </TypoGraphy>
+                        </ListItemText>
+
+                        <ListItemText inset>
+                            <TypoGraphy color="inherit" >
+                                <CategoryList/>
                             </TypoGraphy>
                         </ListItemText>
 

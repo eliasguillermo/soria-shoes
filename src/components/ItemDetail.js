@@ -3,7 +3,7 @@ import './ItemDetail.css';
 import Button from '@material-ui/core/Button';
 import './ItemCount.css';
 import ItemCount from './ItemCount.js'
-import { CartContext } from './CartContext.js'
+import { CartContext } from './context/CartContext.js'
 
 export default function ItemDetail(props) {
 

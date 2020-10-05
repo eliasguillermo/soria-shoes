@@ -12,14 +12,14 @@ background-color: white;
 .details
 {
     color: black;
+    max-width: 328px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .Add-Div
 {
     margin-top:15px;
-    max-width: 328px;
-    margin-left: auto;
-    margin-right: auto;
     margin-bottom: 15px;
 }
 

@@ -8,7 +8,7 @@ import About from './components/About.js'
 import Contact from './components/Contact.js'
 import Cart from './components/Cart.js'
 import ItemDetailContainer from './components/ItemDetailContainer.js'
-import {CartContextProvider} from './components/CartContext.js'
+import {CartContextProvider} from './components/context/CartContext.js'
 
 
 function App() {
