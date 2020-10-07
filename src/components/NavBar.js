@@ -13,7 +13,7 @@ import CategoryList from './CategoryList.js'
 function NavBar() {
 
     return (
-        <div>
+        <div className="NavBar">
             <div>
                 <img src={logo} alt="logo" className="Header-branding-logo" />
             </div>

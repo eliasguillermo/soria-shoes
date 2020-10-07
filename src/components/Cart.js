@@ -7,17 +7,18 @@ import './Cart.css';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import EmptyCart from '../images/cart-empty.png';
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     root: {
         '& > *': {
             margin: theme.spacing(2),
         },
+        padding: 20
     },
     link: {
         textDecoration: 'none',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
     }
 }));
 
@@ -38,13 +39,15 @@ export default function Cart() {
                         <List>
                             {cart.map(u =>
                                 <ListItem>
-                                    <ItemPreview product={u} key={u.id} />
+                                    <ItemPreview product={u} key={u[0].id} />
                                 </ListItem>)}
                         </List>
                         <div className={classes.root}>
-                            <Button variant="contained" color="primary">
-                                Checkout
-                        </Button>
+                            <Link className={classes.link} to="/checkout">
+                                <Button variant="contained" color="primary">
+                                    Checkout
+                                </Button>
+                            </Link>
                         </div>
                     </div>
                     :

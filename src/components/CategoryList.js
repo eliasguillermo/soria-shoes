@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from '@material-ui/core/Button';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Grow from '@material-ui/core/Grow';
@@ -19,7 +19,8 @@ const useStyles = makeStyles((theme) => ({
   button: {
     textTransform: 'none',
     textDecoration: 'none',
-    fontSize: 'inherit'
+    fontSize: 'inherit',
+    color: 'white'
   }
 }));
 
@@ -52,20 +53,21 @@ export default function CategoryList() {
     const db = getFirestore();
     const itemList = db.collection("categories");
     itemList.get().then((querySnapshot) => {
-        if (querySnapshot.size === 0) {
-            console.log('No results');
-        }
-        setCategories(querySnapshot.docs.map(doc => {
-            return ({ id: doc.id, ...doc.data() })}));
-            
+      if (querySnapshot.size === 0) {
+        console.log('No results');
+      }
+      setCategories(querySnapshot.docs.map(doc => {
+        return ({ id: doc.id, ...doc.data() })
+      }));
+
     }).catch((error) => {
-        console.log("Error getting items", error);
+      console.log("Error getting items", error);
     }).finally(() => {
     });
 
-}, []);
-  
-  
+  }, []);
+
+
   // return focus to the button when we transitioned from !open -> open
   const prevOpen = React.useRef(open);
   useEffect(() => {
@@ -81,34 +83,34 @@ export default function CategoryList() {
 
   return (
     <div className={classes.root}>
-        <Button
-          ref={anchorRef}
-          aria-controls={open ? 'menu-list-grow' : undefined}
-          aria-haspopup="true"
-          onClick={handleToggle}
-          color="inherit"
-          className={classes.button}
-        >Our work</Button>
-        <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
-          {({ TransitionProps, placement }) => (
-            <Grow
-              {...TransitionProps}
-              // style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
-            >
-              
-                <ClickAwayListener onClickAway={handleClose}>
-                  <MenuList className={classes.background} autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown} >
-                  {categories.map((c) => (
-                        <MenuItem key={c.id} onClick={handleClose}>
-                         <NavLink className="Nav-link" to={'/categories/' + c.key} color="inherit">{c.name}</NavLink>
-                        </MenuItem>
-                    ))}
-                  </MenuList>
-                </ClickAwayListener>
-            
-            </Grow>
-          )}
-        </Popper>
+      <Button
+        ref={anchorRef}
+        aria-controls={open ? 'menu-list-grow' : undefined}
+        aria-haspopup="true"
+        onClick={handleToggle}
+        className={classes.button}
+      >Our work</Button>
+      <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
+        {({ TransitionProps, placement }) => (
+          <Grow
+            {...TransitionProps}
+          >
+
+            <ClickAwayListener onClickAway={handleClose}>
+              <MenuList className={classes.background} autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown} >
+                {categories.map((c) => (
+                  <NavLink key={c.id + c.key} className="Nav-link" to={'/categories/' + c.key} color="inherit">
+                    <MenuItem key={c.id} onClick={handleClose}>
+                      {c.name}
+                    </MenuItem>
+                  </NavLink>
+                ))}
+              </MenuList>
+            </ClickAwayListener>
+
+          </Grow>
+        )}
+      </Popper>
     </div>
   );
 }

@@ -10,7 +10,7 @@ import Cart from './components/Cart.js'
 import ItemDetailContainer from './components/ItemDetailContainer.js'
 import {CartContextProvider} from './components/context/CartContext.js'
 import CategoryContainer from './components/CategoryContainer.js'
-
+import Checkout from './components/Checkout.js'
 
 function App() {
   return (
@@ -25,6 +25,7 @@ function App() {
             <Route path="/cart/" component={Cart} />
             <Route path="/item/:id" component={ItemDetailContainer} />
             <Route path="/categories/:id" component={CategoryContainer} />
+            <Route path="/checkout/" component={Checkout} />
             <Route component={Error} />
           </Switch>
           {/* <Footer/> */}

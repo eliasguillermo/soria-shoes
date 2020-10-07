@@ -9,7 +9,7 @@ export default function CategoryContainer() {
 
     const [productData, setProductData] = useState([]);
     const [loading, setLoading] = useState(false);
-    const categoryKey  = useParams();
+    const categoryKey = useParams();
 
     useEffect(() => {
         setLoading(true);
@@ -23,8 +23,9 @@ export default function CategoryContainer() {
                 console.log('No results');
             }
             setProductData(querySnapshot.docs.map(doc => {
-                return ({ id: doc.id, ...doc.data() })}));
-                
+                return ({ id: doc.id, ...doc.data() })
+            }));
+
         }).catch((error) => {
             console.log("Error getting items", error);
         }).finally(() => {
@@ -37,7 +38,7 @@ export default function CategoryContainer() {
     return (
         <div>
             { loading ? <Loading /> :
-                <div className="Background">
+                <div>
                     <label className="Category">{categoryKey.id}</label>
                     <ItemList data={productData} />
                 </div>

@@ -29,7 +29,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ItemPreview(props) {
   const classes = useStyles();
-  console.log(props.product);
 
   return (
     <div className={classes.root}>
