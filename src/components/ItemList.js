@@ -1,5 +1,4 @@
 import React from 'react';
-import './ItemList.css';
 import Item from './Item';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
@@ -32,17 +31,3 @@ export default function ItemList(props) {
                 </Grid>
     );
 }
-
-
-
-// function ItemList(props) {
-//     return (
-//         <div className="Product-Body">
-//             {props.data.map(u => 
-//             <Item data={u} key={u.id} />)
-//             }
-//         </div>
-//     )
-// }
-
-//export default ItemList;
