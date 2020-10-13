@@ -4,7 +4,7 @@ import './ItemListContainer.css';
 import Loading from './Loading.js'
 import { getFirestore } from '../firebase'
 
-export default function ItemListContainer(props) {
+export default function ItemListContainer() {
 
     const [productData, setProductData] = useState([]);
     const [loading, setLoading] = useState(false);

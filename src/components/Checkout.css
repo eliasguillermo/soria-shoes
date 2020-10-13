@@ -1,0 +1,14 @@
+.Checkout {
+    color: black;
+    text-align: center;
+    justify-content: center;
+    font-family: ltc-bodoni-175;
+    font-size: 30px;
+    letter-spacing: 0em;
+    line-height: 1em;
+    margin: auto;
+    padding: 70px;
+    display: flex;
+    flex-direction: column;
+
+}
