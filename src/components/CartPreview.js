@@ -36,8 +36,8 @@ export default function CartPreview() {
         <div>
             <List className={classes.root} >
                 {cart.map(u =>
-                    <ListItem>
-                        <ItemSummary product={u} key={u[0].id} />
+                    <ListItem key={u[0].id}>
+                        <ItemSummary product={u} key={u[0].id+u.name} />
                     </ListItem>)}
             </List>
             <Paper className={classes.paper}>

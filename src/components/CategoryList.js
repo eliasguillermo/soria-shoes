@@ -107,7 +107,6 @@ export default function CategoryList() {
                 ))}
               </MenuList>
             </ClickAwayListener>
-
           </Grow>
         )}
       </Popper>

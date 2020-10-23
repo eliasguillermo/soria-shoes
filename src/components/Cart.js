@@ -6,10 +6,10 @@ import ListItem from '@material-ui/core/ListItem';
 import './Cart.css';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
-import EmptyCart from '../images/cart-empty.png';
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+import CartEmpty from './CartEmpty.js'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -46,8 +46,8 @@ export default function Cart() {
                     <div >
                         <List>
                             {cart.map(u =>
-                                <ListItem>
-                                    <ItemPreview product={u} key={u[0].id} />
+                                <ListItem key={u[0].id}>
+                                    <ItemPreview product={u} key={u[0].id+u.name} />
                                 </ListItem>)}
                         </List>
                         <Paper className={classes.paper}>
@@ -64,11 +64,7 @@ export default function Cart() {
                         </div>
                     </div>
                     :
-                    <div className="Cart-empty">
-                        <img src={EmptyCart} alt="empty-cart"></img>
-                        <label><NavLink className={classes.link} to="/">Click here </NavLink>
-                            to start shopping</label>
-                    </div>
+                    <CartEmpty />
                 }
 
         </div>)
