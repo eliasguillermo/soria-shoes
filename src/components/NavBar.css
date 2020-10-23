@@ -1,7 +1,7 @@
 .Header-branding-logo {
-    margin-top: 20px;
-    max-width: 80px;
-    width:50%;
+    max-width: 75px;
+    width:100%;
+    margin-left:40px;
 }
 
 .Nav-link {
@@ -11,4 +11,14 @@
 
 .NavBar {
     background-color: black;
+    width: 100%;
+    min-height: 6vh;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all .7s ease-in;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }

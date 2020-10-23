@@ -22,7 +22,6 @@ const useStyles = makeStyles({
     height: 300,
   },
   img: {
-    display: 'block',
     marginLeft: 'auto',
     marginRight: 'auto',
   }

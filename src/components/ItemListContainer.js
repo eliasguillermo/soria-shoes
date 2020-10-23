@@ -40,25 +40,3 @@ export default function ItemListContainer() {
         </div>)
 
 }
-
-       // const promise = new Promise((resolve, reject) => {
-        //     setLoading(true);
-        //     setTimeout(() => {
-        //         const productData = [
-        //             { id: '1', name: 'Pink and golden sneakers', image: ProductGroup1, price: '500' },
-        //             { id: '2', name: 'Blue Suede', image: ProductGroup2, price: '750' },
-        //             { id: '3', name: 'Fine black shoe', image: ProductGroup3, price: '1000' }
-        //         ];
-        //         resolve(productData);
-        //     }, 1000);
-        //     //reject('Error al obtener los productos');
-        // });
-
-        // promise.then((res) => {
-        //     setProductData(res);
-        //     setLoading(false);
-        // }, (error) => {
-        //     console.log(error);
-        // }).catch((err) => {
-        //     console.log(err);
-        // });;
