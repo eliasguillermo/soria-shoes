@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, { useContext, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -9,9 +9,8 @@ import Typography from '@material-ui/core/Typography';
 import ItemCount from './ItemCount.js'
 import { NavLink } from "react-router-dom";
 import { CartContext } from './context/CartContext.js'
-import './Item.css';
 import Button from '@material-ui/core/Button';
-
+import CartSnackbar from './CartSnackbar.js';
 
 const useStyles = makeStyles({
   root: {
@@ -19,18 +18,31 @@ const useStyles = makeStyles({
     margin: 10
   },
   media: {
-    height: 300,
+    height: 250,
   },
   img: {
     marginLeft: 'auto',
     marginRight: 'auto',
+  },
+  button: {
+    display: 'block',
+    width: '100%',
+  },
+  div: {
+    marginTop:15,
+    maxWidth: 328,
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    marginBottom: 15,
   }
 });
 
 function Item(props) {
   const classes = useStyles();
-  let count = 0;
-  const [,setCart] = useContext(CartContext);
+  const [, setCart] = useContext(CartContext);
+  const [count, setCount] = useState(0);
+  //Snackbar
+  const [open, setOpen] = useState(false);
 
   return (
     <Card className={classes.root}>
@@ -48,43 +60,44 @@ function Item(props) {
             </Typography>
             <Typography variant="body1" color="textSecondary" component="p">
               ${props.data.price}
-          </Typography>
+            </Typography>
           </CardContent>
         </CardActionArea>
       </NavLink>
       <CardActions>
         <ItemCount handleChange={handleChange} min="0" max="10" />
       </CardActions>
-      <div className="Add-Div">
-        <Button id={'Button' + props.data.id} onClick={onAdd} classes={{ root: 'Add-Button' }} variant="outlined" color="primary">Add to cart</Button>
+      <div className={classes.div}>
+       <Button id={'Button' + props.data.id} onClick={onAdd} className={classes.button} variant="outlined" color="primary">Add to cart</Button>
+       <CartSnackbar open={open} count={count}/>
       </div>
     </Card>
   );
 
   function onAdd() {
     if (count > 0) {
-        alert(count + ' products added.')
-        setCart((currentCart) => {
-            const c = currentCart.find(p => p[0].id === props.data.id);
-            let newState;
-            if (c !== undefined) {
-                c[1] += count;
-                newState = [...currentCart];
-            }
-            else {
-                newState = [...currentCart, [props.data, count]]
-            }
-            return newState;
-        });
+      setOpen(true);
+      setCart((currentCart) => {
+        const c = currentCart.find(p => p[0].id === props.data.id);
+        let newState;
+        if (c !== undefined) {
+          c[1] += count;
+          newState = [...currentCart];
+        }
+        else {
+          newState = [...currentCart, [props.data, count]]
+        }
+        return newState;
+      });
     }
     else {
-        alert('Select at least 1 unit.');
+      alert('Select at least 1 unit.');
     }
-}
-  
+  }
+
   function handleChange(state) {
-    count = state
-    state > 0 ? document.getElementById('Button' + props.data.id).innerHTML = 'Add ' + count + ' to cart' : document.getElementById('Button' + props.data.id).innerHTML = 'Add to cart';
+    setCount(state);
+    state > 0 ? document.getElementById('Button' + props.data.id).innerHTML = `Add ${state} to cart` : document.getElementById('Button' + props.data.id).innerHTML = 'Add to cart';
   }
 
 }

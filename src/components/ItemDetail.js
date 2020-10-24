@@ -1,17 +1,20 @@
-import React, { useContext } from 'react';
+import React, {useState, useContext } from 'react';
 import './ItemDetail.css';
 import Button from '@material-ui/core/Button';
 import './ItemCount.css';
-import ItemCount from './ItemCount.js'
-import { CartContext } from './context/CartContext.js'
+import ItemCount from './ItemCount.js';
+import { CartContext } from './context/CartContext.js';
+import CartSnackbar from './CartSnackbar.js';
 
 export default function ItemDetail(props) {
 
-    let count = 0;
+    const [count, setCount] = useState(0);
     const [,setCart] = useContext(CartContext);
+    //Snackbar
+    const [open, setOpen] = useState(false);
 
     return (
-        <div className="container">
+        <div class="container">
             <div>
                 <img alt="product" className="preview-pic" src={props.data.image} />
             </div>
@@ -22,15 +25,16 @@ export default function ItemDetail(props) {
                 <ItemCount handleChange={handleChange} min="0" max="10" />
             </div>
             <div className="Add-Div">
-                <Button id='AddButton' onClick={onAdd} classes={{ root: 'Add-Button' }} variant="outlined" color="primary">Add to cart</Button>
+                <Button id='AddButton' onClick={onAdd} className="Add-Button" variant="outlined" color="primary">Add to cart</Button>
             </div>
+            <CartSnackbar open={open} count={count}/>
         </div>
 
     )
 
     function onAdd() {
         if (count > 0) {
-            alert(count + ' products added.')
+            setOpen(true);
             setCart((currentCart) => {
                 const c = currentCart.find(p => p[0].id === props.data.id);
                 let newState;
@@ -50,8 +54,8 @@ export default function ItemDetail(props) {
     }
 
     function handleChange(state) {
-        count = state
-        state > 0 ? document.getElementById('AddButton').innerHTML = 'Add ' + count + ' to cart' : document.getElementById('AddButton').innerHTML = 'Add to cart';
+        setCount(state);
+        state > 0 ? document.getElementById('AddButton').innerHTML = `Add ${state} to cart` : document.getElementById('AddButton').innerHTML = 'Add to cart';
     }
 
 }
