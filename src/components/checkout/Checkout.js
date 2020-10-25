@@ -25,10 +25,6 @@ const useStyles = makeStyles((theme) => ({
     },
     control: {
         padding: theme.spacing(2)
-    },
-    link: {
-        textDecoration: 'none',
-        fontWeight: 'bold'
     }
 }));
 
@@ -66,7 +62,7 @@ export default function Checkout() {
 
         if (!values.buyerPhone) {
             errors.buyerPhone = 'Field required'
-        } else if (!/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(values.buyerPhone)) {
+        } else if (!/^(?:(?:00)?549?)?0?(?:11|[2368]\d)(?:(?=\d{0,2}15)\d{2})??\d{8}$/.test(values.buyerPhone)) {
             errors.buyerPhone = 'Invalid phone number';
         }
 
@@ -143,7 +139,7 @@ export default function Checkout() {
                         You can track its status with the id: {orderId} 
                         <br />
                         <br /> 
-                        <label><NavLink className={classes.link} to="/">Click here</NavLink> to continue shopping </label>
+                        <label><NavLink className="Page-link" to="/">Click here</NavLink> to continue shopping </label>
                     </div>
                     : cart.length === 0 ? <CartEmpty /> :
                         <div>

@@ -4,17 +4,8 @@ import { useParams } from 'react-router-dom';
 import Loading from '../common/Loading.js';
 import { getFirestore } from '../../firebase';
 import { NavLink } from "react-router-dom";
-import { makeStyles } from '@material-ui/core/styles';
-
-const useStyles = makeStyles(() => ({
-    link: {
-        textDecoration: 'none',
-        fontWeight: 'bold'
-    }
-}));
 
 export default function ItemDetailContainer() {
-    const classes = useStyles();
     const [productItem, setProductItem] = useState({});
     const [loading, setLoading] = useState(false);
     const [notFound, setNotFound] = useState(false);
@@ -52,7 +43,7 @@ export default function ItemDetailContainer() {
             <label>Item not found</label>
             <br />
             <br /> 
-            <label><NavLink className={classes.link} to="/">Click here</NavLink> to continue shopping </label>
+            <label><NavLink className="Page-link" to="/">Click here</NavLink> to continue shopping </label>
             </div>
             : 
             <ItemDetail data={productItem} /> }
