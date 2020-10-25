@@ -1,4 +1,4 @@
-#Consideraciones
+#Información adicional sobre este proyecto
 
 ##Librerías utilizadas
 En este proyecto se utilizaron las siguientes librerías adicionales:
