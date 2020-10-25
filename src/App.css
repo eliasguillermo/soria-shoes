@@ -1,6 +1,37 @@
 .App {
-  text-align: center;
   background-color: white;
+  text-align: center;
 }
 
+.Section-Title {
+  color:black;
+  white-space: pre-wrap;
+  font-family: proxima-nova;
+  font-size: 52px;
+  line-height: 1em;
+  background-color: white;
+  background-size: cover;
+  min-height: 15vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
+.Capitalize {
+  text-transform: capitalize;
+}
+
+.Page-message {
+  color: black;
+  text-align: center;
+  justify-content: center;
+  font-family: ltc-bodoni-175;
+  font-size: 30px;
+  letter-spacing: 0em;
+  line-height: 1em;
+  margin: auto;
+  padding: 70px;
+  display: flex;
+  flex-direction: column;
+}

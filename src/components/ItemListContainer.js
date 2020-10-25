@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import ItemList from './ItemList.js'
-import './ItemListContainer.css';
 import Loading from './Loading.js'
 import { getFirestore } from '../firebase'
 
@@ -32,8 +31,8 @@ export default function ItemListContainer() {
     return (
         <div>
             { loading ? <Loading /> :
-                <div className="Background">
-                    <label className="Home-text">Welcome to Soria's shoes</label>
+                <div>
+                    <label className="Section-Title">Welcome to Soria's shoes</label>
                     <ItemList data={productData} />
                 </div>
             }

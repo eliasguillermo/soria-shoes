@@ -3,7 +3,6 @@ import { CartContext } from './context/CartContext.js'
 import ItemPreview from './ItemPreview.js';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import './Cart.css';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from "react-router-dom";
@@ -41,7 +40,7 @@ export default function Cart() {
 
     return (
         <div>
-            <div className="Cart-title">Shopping cart</div>
+            <div className="Section-Title">Shopping cart</div>
                 {cart.length > 0 ?
                     <div >
                         <List>

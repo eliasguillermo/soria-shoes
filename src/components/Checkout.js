@@ -9,7 +9,6 @@ import Grid from '@material-ui/core/Grid';
 import CartPreview from './CartPreview.js'
 import Loading from './Loading.js'
 import { NavLink } from "react-router-dom";
-import './Checkout.css';
 import { Typography } from '@material-ui/core';
 import CartEmpty from './CartEmpty.js';
 import { useFormik } from 'formik';
@@ -139,13 +138,16 @@ export default function Checkout() {
             { loading ? <Loading /> :
                 orderId !== 0 ?
                     <div>
-                        <label className="Checkout"> Your order #{orderId} was created successfully!
-            <br /><br /> <NavLink className={classes.link} to="/">Click here</NavLink> to continue shopping
+                        <label className="Page-message"> Your order was created successfully! 
+                        You can track its status with the id: {orderId} 
+                        <br />
+                        <br /> 
+                        <label><NavLink className={classes.link} to="/">Click here</NavLink> to continue shopping </label>
             </label>
                     </div>
                     : cart.length === 0 ? <CartEmpty /> :
                         <div>
-                            <div className="Cart-title">Checkout</div>
+                            <div className="Section-Title">Checkout</div>
                             <Grid container justify="center" spacing={10}>
                                 <Grid key="grid-1" item>
                                     <form className={classes.root} onSubmit={formik.handleSubmit} noValidate autoComplete="off">

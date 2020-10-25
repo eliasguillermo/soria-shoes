@@ -24,14 +24,7 @@ export default function CartSnackbar(props) {
     const [open, setOpen] = useState(false);
     const classes = useStyles();
 
-    const handleClose = (event, reason) => {
-        if (reason === 'clickaway') {
-            return;
-        }
-
-        setOpen(false);
-    };
-
+    
     useEffect(() => {
         setOpen(props.open);
     }, [props.open]);
@@ -45,7 +38,7 @@ export default function CartSnackbar(props) {
         }}
         open={open}
         autoHideDuration={4000}
-        onClose={handleClose}
+        onClose={props.handleBarClose}
     >
         <SnackbarContent style={{
             backgroundColor: '#000000',
@@ -58,7 +51,7 @@ export default function CartSnackbar(props) {
                             Go to cart
                         </Button>
                     </NavLink>
-                    <IconButton size="small" aria-label="close" color="inherit" onClick={handleClose}>
+                    <IconButton size="small" aria-label="close" color="inherit" onClick={props.handleBarClose}>
                         <CloseIcon fontSize="small" />
                     </IconButton>
                 </React.Fragment>

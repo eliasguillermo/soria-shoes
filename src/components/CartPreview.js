@@ -3,7 +3,6 @@ import { CartContext } from './context/CartContext.js'
 import ItemSummary from './ItemSummary.js';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import './Cart.css';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';

@@ -78,9 +78,6 @@ export default function CategoryList() {
     prevOpen.current = open;
   }, [open]);
 
-
-
-
   return (
     <div className={classes.root}>
       <Button

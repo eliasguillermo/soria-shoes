@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import ItemList from './ItemList.js'
-import './ItemListContainer.css';
 import Loading from './Loading.js'
 import { getFirestore } from '../firebase'
 import { useParams } from 'react-router-dom';
@@ -39,8 +38,9 @@ export default function CategoryContainer() {
         <div>
             { loading ? <Loading /> :
                 <div>
-                    <label className="Category">{categoryKey.id}</label>
-                    <ItemList data={productData} />
+                    <label className="Section-Title Capitalize">{categoryKey.id}</label>
+                    {productData.length > 0 ? <ItemList data={productData} /> : 
+                    <label className="Page-message">At the moment there are no products available in this category</label> }
                 </div>
             }
         </div>)

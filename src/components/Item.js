@@ -11,6 +11,7 @@ import { NavLink } from "react-router-dom";
 import { CartContext } from './context/CartContext.js'
 import Button from '@material-ui/core/Button';
 import CartSnackbar from './CartSnackbar.js';
+import AlertDialog from './AlertDialog.js';
 
 const useStyles = makeStyles({
   root: {
@@ -42,7 +43,22 @@ function Item(props) {
   const [, setCart] = useContext(CartContext);
   const [count, setCount] = useState(0);
   //Snackbar
-  const [open, setOpen] = useState(false);
+  const [openBar, setOpenBar] = useState(false);
+
+  const handleBarClose = (event, reason) => {
+      if (reason === 'clickaway') {
+          return;
+      }
+
+      setOpenBar(false);
+  };
+
+  //AlertDialog
+  const [openAlert, setOpenAlert] = useState(false);
+
+  const handleClose = () => {
+      setOpenAlert(false);
+  };
 
   return (
     <Card className={classes.root}>
@@ -69,14 +85,15 @@ function Item(props) {
       </CardActions>
       <div className={classes.div}>
        <Button id={'Button' + props.data.id} onClick={onAdd} className={classes.button} variant="outlined" color="primary">Add to cart</Button>
-       <CartSnackbar open={open} count={count}/>
       </div>
+      <CartSnackbar open={openBar} count={count} handleBarClose={handleBarClose} />
+      <AlertDialog open={openAlert} message='Select at least 1 unit' handleClose={handleClose} />
     </Card>
   );
 
   function onAdd() {
     if (count > 0) {
-      setOpen(true);
+      setOpenBar(true);
       setCart((currentCart) => {
         const c = currentCart.find(p => p[0].id === props.data.id);
         let newState;
@@ -91,7 +108,7 @@ function Item(props) {
       });
     }
     else {
-      alert('Select at least 1 unit.');
+      setOpenAlert(true);
     }
   }
 

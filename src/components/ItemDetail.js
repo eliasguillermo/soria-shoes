@@ -5,36 +5,54 @@ import './ItemCount.css';
 import ItemCount from './ItemCount.js';
 import { CartContext } from './context/CartContext.js';
 import CartSnackbar from './CartSnackbar.js';
+import AlertDialog from './AlertDialog.js';
 
 export default function ItemDetail(props) {
 
     const [count, setCount] = useState(0);
     const [,setCart] = useContext(CartContext);
     //Snackbar
-    const [open, setOpen] = useState(false);
+    const [openBar, setOpenBar] = useState(false);
+
+    const handleBarClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        setOpenBar(false);
+    };
+
+    //AlertDialog
+    const [openAlert, setOpenAlert] = useState(false);
+
+    const handleClose = () => {
+        setOpenAlert(false);
+    };
 
     return (
-        <div class="container">
+        <div>
+             <label className="Section-Title">{props.data.name}</label>
             <div>
                 <img alt="product" className="preview-pic" src={props.data.image} />
             </div>
+            <br />
             <div className="details">
-                <h2>{props.data.name}</h2>
-                <p>{props.data.description}</p>
-                <h3>Price: <span>${props.data.price}</span></h3>
+                <label>{props.data.description}</label> <br /><br />
+                <label> Price: ${props.data.price}</label> <br /><br />
                 <ItemCount handleChange={handleChange} min="0" max="10" />
             </div>
             <div className="Add-Div">
                 <Button id='AddButton' onClick={onAdd} className="Add-Button" variant="outlined" color="primary">Add to cart</Button>
             </div>
-            <CartSnackbar open={open} count={count}/>
+            <CartSnackbar open={openBar} count={count} handleBarClose={handleBarClose} />
+            <AlertDialog open={openAlert} message='Select at least 1 unit' handleClose={handleClose} />
         </div>
 
     )
 
     function onAdd() {
         if (count > 0) {
-            setOpen(true);
+            setOpenBar(true);
             setCart((currentCart) => {
                 const c = currentCart.find(p => p[0].id === props.data.id);
                 let newState;
@@ -49,7 +67,7 @@ export default function ItemDetail(props) {
             });
         }
         else {
-            alert('Select at least 1 unit.');
+            setOpenAlert(true);
         }
     }
 
