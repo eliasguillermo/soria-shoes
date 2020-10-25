@@ -1,16 +1,16 @@
 import React, { useContext, useState } from 'react';
-import { CartContext } from './context/CartContext.js'
+import { CartContext } from '../../context/CartContext.js'
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import { getFirestore } from '../firebase';
+import { getFirestore } from '../../firebase';
 import * as firebase from 'firebase/app';
 import Grid from '@material-ui/core/Grid';
 import CartPreview from './CartPreview.js'
-import Loading from './Loading.js'
+import Loading from '../common/Loading.js'
 import { NavLink } from "react-router-dom";
 import { Typography } from '@material-ui/core';
-import CartEmpty from './CartEmpty.js';
+import CartEmpty from '../cart/CartEmpty.js';
 import { useFormik } from 'formik';
 
 const useStyles = makeStyles((theme) => ({
@@ -71,7 +71,7 @@ export default function Checkout() {
         }
 
         if (!values.buyerConfirmEmail) {
-            errors.buyerConfirmEmail = 'Field required'
+            errors.buyerConfirmEmail = 'Field required';
         } else if (values.buyerConfirmEmail !== values.buyerEmail) {
             errors.buyerConfirmEmail = 'Confirm email does not match';
         }
@@ -155,19 +155,19 @@ export default function Checkout() {
                                             <label>Contact information</label>
                                         </Typography>
                                         <div>
-                                            <TextField id="buyerName" name="buyerName" label="Name" error={formik.touched.buyerName && formik.errors.buyerName} helperText={formik.touched.buyerName && formik.errors.buyerName ? formik.errors.buyerName : ""} onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.buyerName} />
+                                            <TextField id="buyerName" name="buyerName" label="Name" error={formik.touched.buyerName && formik.errors.buyerName? true: false} helperText={formik.touched.buyerName && formik.errors.buyerName ? formik.errors.buyerName : ""} onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.buyerName} />
                                         </div>
                                         <div>
-                                            <TextField id="buyerLastName" name="buyerLastName" label="Last name" error={formik.touched.buyerLastName && formik.errors.buyerLastName} helperText={formik.touched.buyerLastName && formik.errors.buyerLastName ? formik.errors.buyerLastName : ""} onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.buyerLastName} />
+                                            <TextField id="buyerLastName" name="buyerLastName" label="Last name" error={formik.touched.buyerLastName && formik.errors.buyerLastName? true: false} helperText={formik.touched.buyerLastName && formik.errors.buyerLastName ? formik.errors.buyerLastName : ""} onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.buyerLastName} />
                                         </div>
                                         <div>
-                                            <TextField id="buyerPhone" name="buyerPhone" label="Phone number" error={formik.touched.buyerPhone && formik.errors.buyerPhone} helperText={formik.touched.buyerPhone && formik.errors.buyerPhone ? formik.errors.buyerPhone : ""} onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.buyerPhone} />
+                                            <TextField id="buyerPhone" name="buyerPhone" label="Phone number" error={formik.touched.buyerPhone && formik.errors.buyerPhone? true: false} helperText={formik.touched.buyerPhone && formik.errors.buyerPhone ? formik.errors.buyerPhone : ""} onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.buyerPhone} />
                                         </div>
                                         <div>
-                                            <TextField id="buyerEmail" name="buyerEmail" label="Email" error={formik.touched.buyerEmail && formik.errors.buyerEmail} helperText={formik.touched.buyerEmail && formik.errors.buyerEmail ? formik.errors.buyerEmail : ""} onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.buyerEmail} />
+                                            <TextField id="buyerEmail" name="buyerEmail" label="Email" error={formik.touched.buyerEmail && formik.errors.buyerEmail? true: false} helperText={formik.touched.buyerEmail && formik.errors.buyerEmail ? formik.errors.buyerEmail : ""} onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.buyerEmail} />
                                         </div>
                                         <div>
-                                            <TextField id="buyerConfirmEmail" name="buyerConfirmEmail" label="Confirm Email" error={formik.touched.buyerConfirmEmail && formik.errors.buyerConfirmEmail} helperText={formik.touched.buyerConfirmEmail && formik.errors.buyerConfirmEmail ? formik.errors.buyerConfirmEmail : ""} onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.buyerConfirmEmail} />
+                                            <TextField id="buyerConfirmEmail" name="buyerConfirmEmail" label="Confirm Email" error={formik.touched.buyerConfirmEmail && formik.errors.buyerConfirmEmail? true: false} helperText={formik.touched.buyerConfirmEmail && formik.errors.buyerConfirmEmail ? formik.errors.buyerConfirmEmail : ""} onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.buyerConfirmEmail} />
                                         </div>
                                         <div className={classes.button} >
                                             <Button type="submit" variant="contained" color="primary" >

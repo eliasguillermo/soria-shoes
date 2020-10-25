@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import ItemList from './ItemList.js'
-import Loading from './Loading.js'
-import { getFirestore } from '../firebase'
+import ItemList from '../itemList/ItemList.js'
+import Loading from '../common/Loading.js'
+import { getFirestore } from '../../firebase'
 import { useParams } from 'react-router-dom';
 import { NavLink } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';

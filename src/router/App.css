@@ -3,6 +3,10 @@
   text-align: center;
 }
 
+body {
+  margin: 0;
+}
+
 .Section-Title {
   color:black;
   white-space: pre-wrap;

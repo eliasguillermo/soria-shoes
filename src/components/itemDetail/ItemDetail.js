@@ -1,10 +1,10 @@
 import React, {useState, useContext } from 'react';
 import './ItemDetail.css';
 import Button from '@material-ui/core/Button';
-import ItemCount from './ItemCount.js';
-import { CartContext } from './context/CartContext.js';
-import CartSnackbar from './CartSnackbar.js';
-import AlertDialog from './AlertDialog.js';
+import ItemCount from '../itemCounter/ItemCount.js';
+import { CartContext } from '../../context/CartContext.js';
+import CartSnackbar from '../cart/CartSnackbar.js';
+import AlertDialog from '../common/AlertDialog.js';
 
 
 export default function ItemDetail(props) {

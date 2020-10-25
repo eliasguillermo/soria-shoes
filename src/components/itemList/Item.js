@@ -6,12 +6,12 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import ItemCount from './ItemCount.js'
+import ItemCount from '../itemCounter/ItemCount.js'
 import { NavLink } from "react-router-dom";
-import { CartContext } from './context/CartContext.js'
+import { CartContext } from '../../context/CartContext.js'
 import Button from '@material-ui/core/Button';
-import CartSnackbar from './CartSnackbar.js';
-import AlertDialog from './AlertDialog.js';
+import CartSnackbar from '../cart/CartSnackbar.js';
+import AlertDialog from '../common/AlertDialog.js';
 
 const useStyles = makeStyles({
   root: {

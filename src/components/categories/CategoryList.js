@@ -6,15 +6,15 @@ import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import { makeStyles } from '@material-ui/core/styles';
-import { getFirestore } from '../firebase';
+import { getFirestore } from '../../firebase';
 import { NavLink } from "react-router-dom";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     display: 'flex',
   },
   background: {
-    backgroundColor: theme.palette.common.black
+    backgroundColor: 'black',
   },
   button: {
     textTransform: 'none',
@@ -92,7 +92,7 @@ export default function CategoryList() {
           <Grow
             {...TransitionProps}
           >
-
+            <React.Fragment>
             <ClickAwayListener onClickAway={handleClose}>
               <MenuList className={classes.background} autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown} >
                 {categories.map((c) => (
@@ -104,6 +104,7 @@ export default function CategoryList() {
                 ))}
               </MenuList>
             </ClickAwayListener>
+            </React.Fragment>
           </Grow>
         )}
       </Popper>

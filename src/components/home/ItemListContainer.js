@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import ItemList from './ItemList.js'
-import Loading from './Loading.js'
-import { getFirestore } from '../firebase'
+import ItemList from '../itemList/ItemList.js'
+import Loading from '../common/Loading.js'
+import { getFirestore } from '../../firebase'
 
 export default function ItemListContainer() {
 

@@ -1,15 +1,15 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import NavBar from './components/NavBar';
-import ItemListContainer from './components/ItemListContainer.js';
-import About from './components/About.js';
-import Cart from './components/Cart.js';
-import ItemDetailContainer from './components/ItemDetailContainer.js';
-import { CartContextProvider } from './components/context/CartContext.js';
-import CategoryContainer from './components/CategoryContainer.js';
-import Checkout from './components/Checkout.js';
-import ScrollIntoView from "./components/ScrollIntoView";
+import NavBar from '../components/navigation/NavBar.js';
+import ItemListContainer from '../components/home/ItemListContainer.js';
+import About from '../components/about/About.js';
+import Cart from '../components/cart/Cart.js';
+import ItemDetailContainer from '../components/itemDetail/ItemDetailContainer.js';
+import { CartContextProvider } from '../context/CartContext.js';
+import CategoryContainer from '../components/categories/CategoryContainer.js';
+import Checkout from '../components/checkout/Checkout.js';
+import ScrollIntoView from "../components/navigation/ScrollIntoView.js";
 
 function App() {
   return (
@@ -27,7 +27,6 @@ function App() {
               <Route path="/checkout/" component={Checkout} />
               <Route component={Error} />
             </Switch>
-            {/* <Footer/> */}
           </ScrollIntoView>
         </Router>
       </div>

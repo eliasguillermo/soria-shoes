@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { CartContext } from './context/CartContext.js'
+import { CartContext } from '../../context/CartContext.js'
 import ItemPreview from './ItemPreview.js';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';

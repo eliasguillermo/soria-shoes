@@ -3,7 +3,7 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import IconButton from '@material-ui/core/IconButton';
 import Badge from '@material-ui/core/Badge';
 import { withStyles } from '@material-ui/core/styles';
-import {CartContext} from './context/CartContext.js';
+import {CartContext} from '../../context/CartContext.js';
 
 const StyledBadge = withStyles(() => ({
     badge: {
