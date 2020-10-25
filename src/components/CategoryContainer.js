@@ -3,9 +3,18 @@ import ItemList from './ItemList.js'
 import Loading from './Loading.js'
 import { getFirestore } from '../firebase'
 import { useParams } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles(() => ({
+    link: {
+        textDecoration: 'none',
+        fontWeight: 'bold'
+    }
+}));
 
 export default function CategoryContainer() {
-
+    const classes = useStyles();
     const [productData, setProductData] = useState([]);
     const [loading, setLoading] = useState(false);
     const categoryKey = useParams();
@@ -39,8 +48,13 @@ export default function CategoryContainer() {
             { loading ? <Loading /> :
                 <div>
                     <label className="Section-Title Capitalize">{categoryKey.id}</label>
-                    {productData.length > 0 ? <ItemList data={productData} /> : 
-                    <label className="Page-message">At the moment there are no products available in this category</label> }
+                    {productData.length > 0 ? <ItemList data={productData} /> :
+                        <div className="Page-message">
+                            <label>At the moment there are no products available in this category</label>
+                            <br />
+                            <br />
+                            <label><NavLink className={classes.link} to="/">Click here</NavLink> to continue shopping </label>
+                        </div>}
                 </div>
             }
         </div>)

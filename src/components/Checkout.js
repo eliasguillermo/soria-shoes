@@ -120,6 +120,7 @@ export default function Checkout() {
             buyer: buyerInfo,
             items: cartInfo,
             date: firebase.firestore.Timestamp.fromDate(new Date()),
+            state: 'generada',
             total: productTotal
         };
 
@@ -137,13 +138,12 @@ export default function Checkout() {
         <div>
             { loading ? <Loading /> :
                 orderId !== 0 ?
-                    <div>
-                        <label className="Page-message"> Your order was created successfully! 
+                    <div className="Page-message">
+                        <label> Your order was created successfully!</label>
                         You can track its status with the id: {orderId} 
                         <br />
                         <br /> 
                         <label><NavLink className={classes.link} to="/">Click here</NavLink> to continue shopping </label>
-            </label>
                     </div>
                     : cart.length === 0 ? <CartEmpty /> :
                         <div>

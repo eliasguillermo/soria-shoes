@@ -9,8 +9,6 @@ import CartIcon from './CartIcon.js'
 import { NavLink } from "react-router-dom";
 import CategoryList from './CategoryList.js'
 
-
-
 function NavBar() {
 
     return (
@@ -34,12 +32,6 @@ function NavBar() {
                             <ListItemText inset>
                                 <TypoGraphy color="inherit" >
                                     <NavLink className="Nav-link" to="/about/">About</NavLink>
-                                </TypoGraphy>
-                            </ListItemText>
-
-                            <ListItemText inset>
-                                <TypoGraphy color="inherit">
-                                    <NavLink className="Nav-link" to="/contact/" color="inherit">Find us</NavLink>
                                 </TypoGraphy>
                             </ListItemText>
 
