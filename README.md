@@ -1,16 +1,14 @@
 # Soria-shoes
-E-commerce for buying different kind of shoes, created for ReactJS course of Coder House 
+E-commerce for buying different kind of shoes, created for ReactJS course of Coder House <br />
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## To test this project
-- Configure an '.env' file in your local project according to Environment documentation
-[Environment Docs](docs/Environment.md)
+- Configure an '.env' file in your local project according to [Environment Documentation](docs/Environment.md)
 
 - Run 'npm start' command in the console
 
 ## Aditional information
-Check this doc to see aditional information about this project:
-[Environment Docs](docs/Info.md)
+Check [this document](docs/Info.md) to see aditional information about this project
 
 ### `npm start`
 
