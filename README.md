@@ -5,10 +5,17 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## To test this project
 - Configure an '.env' file in your local project according to [Environment Documentation](docs/Environment.md)
 
+- Install: <br />
+Material UI: <br />
+npm install @material-ui/core <br />
+npm install @material-ui/icons <br />
+Formik: <br /> 
+npm install formik --save <br />
+
 - Run 'npm start' command in the console
 
 ## Aditional information
-Check [this document](docs/Info.md) to see aditional information about this project
+[Check this document](docs/Info.md) to see aditional information about this project
 
 ### `npm start`
 

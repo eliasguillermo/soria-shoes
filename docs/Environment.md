@@ -1,6 +1,6 @@
-# Environment Docs
+# Environment Doc
 - Configure a `.env` file in your local project and add it to `.gitignore`
-- Set the following Env variables:
+- Set the following Env variables: <br />
     FIREBASE_API_KEY = <br />
     FIREBASE_AUTH_DOMAIN = <br />
     FIREBASE_DATABASE_URL = <br />

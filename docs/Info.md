@@ -2,8 +2,8 @@
 
 ## Librerías utilizadas
 En este proyecto se utilizaron las siguientes librerías adicionales:
-- Material-UI: Para la utilización y custimización de componentes ya armados
-- Formik: Para el manejo y validaciones del formulario de checkout
+- Material-UI: Customización de componentes ya armados
+- Formik: Manejo y validaciones del formulario de checkout
 
 ## Estilos
 - Solo se utilizaron archivos css para los estilos globales (App.css), la barra de navegación (NavBar.css) y la página de contenido "About" (About.css)
