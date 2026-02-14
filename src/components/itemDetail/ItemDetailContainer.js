@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import ItemDetail from './ItemDetail.js'
 import { useParams } from 'react-router-dom';
 import Loading from '../common/Loading.js';
-import { getFirestore } from '../../firebase';
+import { db } from '../../firebase';
+import { doc, getDoc } from 'firebase/firestore';
 import { NavLink } from "react-router-dom";
 
 export default function ItemDetailContainer() {
@@ -15,17 +16,14 @@ export default function ItemDetailContainer() {
 
         setLoading(true);
         setNotFound(false);
-        const db = getFirestore();
+        const itemRef = doc(db, "items", itemId.id);
 
-        const itemList = db.collection("items");
-        const item = itemList.doc(itemId.id);
-        
-        item.get().then((doc) => {
-            if (!doc.exists) {
+        getDoc(itemRef).then((docSnap) => {
+            if (!docSnap.exists()) {
                 setNotFound(true);
                 return;
             } 
-            setProductItem({ id: doc.id, ...doc.data() });
+            setProductItem({ id: docSnap.id, ...docSnap.data() });
         }).catch((error) => {
             console.log("Error getting item", error);
             setNotFound(true);

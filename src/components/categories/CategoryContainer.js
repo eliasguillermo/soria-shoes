@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import ItemList from '../itemList/ItemList.js'
 import Loading from '../common/Loading.js'
-import { getFirestore } from '../../firebase'
+import { db } from '../../firebase'
+import { collection, query, where, getDocs } from 'firebase/firestore'
 import { useParams } from 'react-router-dom';
 import { NavLink } from "react-router-dom";
 
@@ -12,12 +13,10 @@ export default function CategoryContainer() {
 
     useEffect(() => {
         setLoading(true);
-        const db = getFirestore();
-        const itemList = db.collection("items");
+        const itemList = collection(db, "items");
+        const categoryItems = query(itemList, where('categoryKey', '==', categoryKey.id));
 
-        const categoryItems = itemList.where('categoryKey', '==', categoryKey.id);
-
-        categoryItems.get().then((querySnapshot) => {
+        getDocs(categoryItems).then((querySnapshot) => {
             if (querySnapshot.size === 0) {
                 console.log('No results');
             }

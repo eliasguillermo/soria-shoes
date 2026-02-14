@@ -6,7 +6,8 @@ import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import { makeStyles } from '@material-ui/core/styles';
-import { getFirestore } from '../../firebase';
+import { db } from '../../firebase';
+import { collection, getDocs } from 'firebase/firestore';
 import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles(() => ({
@@ -50,9 +51,8 @@ export default function CategoryList() {
   }
 
   useEffect(() => {
-    const db = getFirestore();
-    const itemList = db.collection("categories");
-    itemList.get().then((querySnapshot) => {
+    const itemList = collection(db, "categories");
+    getDocs(itemList).then((querySnapshot) => {
       if (querySnapshot.size === 0) {
         console.log('No results');
       }

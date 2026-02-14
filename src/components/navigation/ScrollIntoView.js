@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react';
-import { withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { useLocation } from 'react-router-dom';
 
-const ScrollIntoView = ({ children, location }) => {
+const ScrollIntoView = ({ children }) => {
+  const location = useLocation();
   const prevLocation = useRef();
 
   useEffect(() => {
@@ -15,9 +15,4 @@ const ScrollIntoView = ({ children, location }) => {
   return children;
 };
 
-ScrollIntoView.propTypes = {
-  children: PropTypes.node,
-  location: PropTypes.object
-};
-
-export default withRouter(ScrollIntoView);
+export default ScrollIntoView;

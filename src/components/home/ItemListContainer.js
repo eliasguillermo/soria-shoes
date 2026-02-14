@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import ItemList from '../itemList/ItemList.js'
 import Loading from '../common/Loading.js'
-import { getFirestore } from '../../firebase'
+import { db } from '../../firebase'
+import { collection, getDocs } from 'firebase/firestore'
 
 export default function ItemListContainer() {
 
@@ -10,9 +11,8 @@ export default function ItemListContainer() {
 
     useEffect(() => {
         setLoading(true);
-        const db = getFirestore();
-        const itemList = db.collection("items");
-        itemList.get().then((querySnapshot) => {
+        const itemList = collection(db, "items");
+        getDocs(itemList).then((querySnapshot) => {
             if (querySnapshot.size === 0) {
                 console.log('No results');
             }
